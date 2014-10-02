@@ -87,3 +87,4 @@ plugins/
 robots.txt.dist
 templates/
 tests/
+language/
