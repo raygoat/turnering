@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+	<fieldset>
+
+              <field name="id" type="text" default="0" label="COM_TURNERING_FORM_LBL_KREDS_ID"
+            readonly="true" class="readonly"
+            description="JGLOBAL_FIELD_ID_DESC" /> 
+
+       <field name="created_by" type="createdby" default="" 
+            label="COM_TURNERING_FORM_LBL_KREDS_CREATED_BY"
+            description="COM_TURNERING_FORM_DESC_KREDS_CREATED_BY"  /> 
+
+       <field name="alder" type="text"
+                
+            label="COM_TURNERING_FORM_LBL_KREDS_ALDER"
+            description="COM_TURNERING_FORM_DESC_KREDS_ALDER" 
+                
+                
+                 required="true" 
+            filter="safehtml" /> 
+
+       <field name="kreds" type="text" size="40" class="inputbox"
+        
+            label="COM_TURNERING_FORM_LBL_KREDS_KREDS"
+            description="COM_TURNERING_FORM_DESC_KREDS_KREDS" 
+        
+        
+         required="true" 
+        filter="safehtml" /> 
+
+       <field name="dbukredsnr" type="text" size="40" class="inputbox"
+        
+            label="COM_TURNERING_FORM_LBL_KREDS_DBUKREDSNR"
+            description="COM_TURNERING_FORM_DESC_KREDS_DBUKREDSNR" 
+        
+        
+         required="true" 
+        filter="safehtml" /> 
+
+       <field name="label" type="text"
+                
+            label="COM_TURNERING_FORM_LBL_KREDS_LABEL"
+            description="COM_TURNERING_FORM_DESC_KREDS_LABEL" 
+                
+                
+                
+            menu_published="0"
+            filter="safehtml" /> 
+
+       <field name="gennemgaaende" type="text" size="40" class="inputbox"
+        
+            label="COM_TURNERING_FORM_LBL_KREDS_GENNEMGAAENDE"
+            description="COM_TURNERING_FORM_DESC_KREDS_GENNEMGAAENDE" 
+        
+        
+        
+        filter="safehtml" /> 
+
+         <field
+        name="state"
+        type="list"
+        label="JSTATUS"
+        description="JFIELD_PUBLISHED_DESC"
+        class="inputbox"
+        size="1"
+        default="1">
+        <option value="1">JPUBLISHED</option>
+        <option value="0">JUNPUBLISHED</option>
+        <option value="2">JARCHIVED</option>
+        <option value="-2">JTRASHED</option>
+    </field> 
+
+                        <field name="checked_out" type="hidden" filter="unset" />
+        <field name="checked_out_time" type="hidden" filter="unset" />
+
+	</fieldset>
+
+</form>
