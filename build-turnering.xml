@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="com_turnering" default="main" basedir=".">
+    <property name="packagename" value="turnering" />
+    <property name="export" value="." />
+    <property name="adminDirectory" value="${export}/administrator" />
+    <property name="adminComponentDir" value="${adminDirectory}/components/com_${packagename}" />
+    <property name="siteComponentDir" value="${export}/components/com_${packagename}" />
+    <property name="builddir" value="./com_${packagename}" />
+    <property name="admindir" value="${builddir}/admin" />
+    <property name="sitedir" value="${builddir}/site" />
+
+    <!-- ============================================  -->
+    <!-- Target: main (DEFAULT)                    	   -->
+    <!-- ============================================  -->
+
+    <target name="main" depends="init, admin, site, package">
+         <echo msg="Build Project di JoomPhoto Mobile Terminato con successo" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: init                             	   -->
+    <!-- ============================================  -->
+
+    <target name="init">
+        <echo msg="Opret BUILD dir..." />
+        <mkdir dir="${builddir}" />
+        <echo msg="Copia dei file di installazione nella directory di build..." />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: admin                                 -->
+    <!-- Creazione della cartella "Admin" contenente   -->
+    <!-- la parte di cartelle e file per il BackEnd    -->
+    <!-- ============================================  -->
+
+    <target name="admin">
+        <echo msg="Build della parte di amministrazione (administrator)..." />
+        <echo msg="Inizio copia dei file nella directory admin..." />
+        <copy todir="${admindir}" >
+            <fileset dir="${adminComponentDir}" >
+                <patternset>
+                    <include name="**"/>
+                </patternset>
+            </fileset>
+        </copy>
+        <copy todir="${admindir}/language" >
+            <fileset dir="${adminDirectory}/language" >
+                <patternset>
+                    <include name="**"/>
+                </patternset>
+            </fileset>
+        </copy>
+        <!-- Kopier Manifest-filen -->
+        <copy file="${adminComponentDir}/${packagename}.xml" tofile="${builddir}/${packagename}.xml" />
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: site                          		   -->
+    <!-- ============================================  -->
+
+    <target name="site">
+        <echo msg="Build della parte di frontend..." />
+        <echo msg="Copia dei file nella directory site..." />
+        <copy todir="${sitedir}" >
+            <fileset dir="${siteComponentDir}" >
+                <patternset>
+                    <include name="**"/>
+                </patternset>
+            </fileset>
+        </copy>
+        <copy todir="${sitedir}/language" >
+            <fileset dir="${export}/language" >
+                <patternset>
+                    <include name="**"/>
+                </patternset>
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- ============================================  -->
+    <!-- Target: pacakge 				  			   -->
+    <!-- Crea il pacchetto di installazione  		   -->
+    <!-- ============================================  -->
+
+    <target name="package" >
+        <echo msg="Pakker zip-fil..." />
+        <zip destfile="./com_${packagename}.zip">
+            <fileset dir="${builddir}">
+                <include name="**/**" />
+            </fileset>
+        </zip>
+        <echo msg="File copiati e compressi nella build directory..." />
+        <echo msg="Cancella cartella di Build..." />
+        <delete dir="${builddir}"/>
+    </target>
+</project>

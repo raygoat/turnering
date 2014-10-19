@@ -45,7 +45,7 @@
 			<menu link="option=com_turnering&amp;view=kredse" view="kredse" img="components/com_turnering/assets/images/s_kredse.png" alt="Turnering/Kredse">COM_TURNERING_TITLE_KREDSE</menu>
 
         </submenu>
-        <files folder="administrator">
+        <files folder="admin">
             <filename>access.xml</filename>
             <filename>config.xml</filename>
             <filename>controller.php</filename>
@@ -60,8 +60,7 @@
             <folder>views</folder>
             <folder>language</folder>
         </files>
-        <languages folder="administrator">
-            
+        <languages folder="admin">
 			<language tag="en-GB">language/en-GB/en-GB.com_turnering.ini</language>
 			<language tag="en-GB">language/en-GB/en-GB.com_turnering.sys.ini</language>
         </languages>
