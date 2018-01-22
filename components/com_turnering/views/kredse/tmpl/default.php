@@ -2,8 +2,8 @@
 /**
  * @package	OOB.specific.functionality
  * @subpackage	com_turnering
- * @copyright	Copyright (C) 2011-14 INC Trampa
- * @author      René Gedde
+ * @copyright	Copyright (C) 2011-14 RayGoat
+ * @author      Ray Goat
  * @license	GNU General Public License version 2
  */
 
